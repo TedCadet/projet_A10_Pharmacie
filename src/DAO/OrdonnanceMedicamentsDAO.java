@@ -9,6 +9,6 @@ package DAO;
  *
  * @author M5A99X
  */
-public class OrdonnanceMedicamentsDAO {
+public class OrdonnanceMedicamentsDAO extends DAO{
     
 }
