@@ -1,97 +1,38 @@
 --Suppression de toutes les tables
-DELETE categories;
-DELETE specialite;
-DELETE medicament;
+DELETE consultation;
+DELETE dossierpatient;
+DELETE docteur;
 DELETE ordonnancechirurgie;
 DELETE ordonnancemedicaments;
 DELETE ordonnance;
-DELETE docteur;
-DELETE dossierpatient;
-DELETE consultation;
+--DELETE specialite;
+--DELETE medicament;
+--DELETE categories;
 
--- fonctionne
-INSERT INTO 
-CREATE TABLE DOSSIERPATIENT (
-    numDos int PRIMARY KEY, 
-    nomP VARCHAR2(50) NOT NULL, 
-    prenomP VARCHAR2(50) NOT NULL, 
-    genre CHAR(1) CHECK (genre in ('M', 'F')), 
-    numAS VARCHAR2(12) UNIQUE, 
-    dateNaiss DATE, 
-    dateC DATE, 
-    matricule VARCHAR2(8) FOREIGN KEY REFERENCES DOCTEUR(matricule)
-);
+--INSERT INTO categories
+--INSERT INTO medicaments
+--INSERT INTO specialite
 
--- fonctionne
-CREATE TABLE DOCTEUR (
-    matricule VARCHAR2(8) PRIMARY KEY, 
-    nomM VARCHAR2(20) NOT NULL, 
-    prenomM VARCHAR2(20) NOT NULL, 
-    specialite NUMBER(2) , 
-    ville VARCHAR2(20), 
-    adresse VARCHAR2(50), 
-    niveau VARCHAR2(8) CHECK (niveau in ('Étudiant', 'Interne', 'Docteur')), 
-    nbrPatients NUMBER(3) DEFAULT 0,
-    FOREIGN KEY(specialite) REFERENCES SPECIALITE(code)
-   
-);
+--Insertion de données dans toutes les tables
+INSERT INTO ordonnance (numOrd, recommandations, typeO, dateC)
+VALUES(); --(NUM(8),VAR(50),('chirurgie', 'medicaments'),DATE)
 
--- fonctionnne
-CREATE TABLE CONSULTATION (
-    CodeDocteur VARCHAR2(8), 
-    numDos int, --FOREIGN
-    dateC DATE, 
-    diagnostic VARCHAR2(50), 
-    numOrd NUMBER(8),
-    PRIMARY KEY(CodeDocteur, numDos, dateC),
-    FOREIGN KEY (CodeDocteur) REFERENCES DOCTEUR(matricule),
-    FOREIGN KEY (numDos) REFERENCES DOSSIERPATIENT(numDos),
-    FOREIGN KEY (numOrd) REFERENCES ORDONNANCE(numOrd)
-);
 
--- fonctionne
-CREATE TABLE ORDONNANCE (
-    numOrd NUMBER(8) PRIMARY KEY, 
-    recommandations VARCHAR2(50), 
-    typeO VARCHAR2(11) CHECK (typeO in ('chirurgie', 'medicaments')), 
-    dateC DATE
-);
+INSERT INTO ordonnancechirurgie (numOrd, rang, nomChirurgie)
+VALUES();   --(NUM(8), NUM(3), VAR(50))
 
--- fonctionne
-CREATE TABLE ORDONNANCECHIRURGIE (
-    numOrd NUMBER(8),
-    rang NUMBER(3) DEFAULT 0,
-    nomChirurgie VARCHAR2(50),
-    PRIMARY KEY(numOrd, rang),
-    FOREIGN KEY(numOrd) REFERENCES ORDONNANCE(numOrd)
-);
 
--- id = idMed
--- fonctionne 
-CREATE TABLE ORDONNANCEMEDICAMENTS (
-    numOrd NUMBER(8),
-    id CHAR(8), 
-    nbBoites NUMBER(3) DEFAULT 0,
-    PRIMARY KEY(numOrd, id),
-    FOREIGN KEY (numOrd) REFERENCES ORDONNANCE(numOrd),
-    FOREIGN KEY (id) REFERENCES MEDICAMENTS(id)
-);
+INSERT INTO ordonnancemedicaments (numOrd, id, nbBoites)
+VALUES ();  --(NUM(8), CHAR(8), NUM(3))
 
-CREATE TABLE MEDICAMENT (
-    idMed VARCHAR2(8), 
-    nomMed VARCHAR2(50), 
-    prix number(9,2), 
-    categorie -- wut ?, yassir
-);
 
-CREATE TABLE SPECIALITE (
-    code, -- je sais pas trop, yassir 
-    titre VARCHAR2(50), 
-    description varchar2(500)
-);
+INSERT INTO docteur (matricule, nomM, prenomM, specialite, ville, adresse, niveau, nbrPatients)
+VALUES(); --(VAR(8), VAR(20), VAR(20), NUM(2), VAR(20), VAR(50), ('Étudiant', 'Interne', 'Docteur'), NUM(3))
 
-CREATE TABLE CATEGORIES (
-    IdCategorie VARCHAR2(8) PRIMARY KEY, 
-    nom VARCHAR2(50), 
-    Description varchar2(500)
-);
+
+INSERT INTO dossierpatient (numDos, nomP, prenomP, genre, numAS, dateNaiss, dateC, matricule)
+VALUES(); --(VAR(16), VAR(30), VAR(30), ('M', 'F'), VAR(12), DATE, DATE, VAR(8))
+
+
+INSERT INTO consultation (CodeDocteur, numDos, dateC, diagnostic, numOrd)
+VALUES();   --(VAR(8), VAR(16), DATE, VAR(255), NUM(8))

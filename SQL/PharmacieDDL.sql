@@ -5,9 +5,9 @@ DROP TABLE docteur PURGE;
 DROP TABLE ordonnancechirurgie PURGE;
 DROP TABLE ordonnancemedicaments PURGE;
 DROP TABLE ordonnance PURGE;
---DROP TABLE specialite;
---DROP TABLE medicament;
---DROP TABLE categories;
+--DROP TABLE specialite PURGE;
+--DROP TABLE medicaments PURGE;
+--DROP TABLE categories PURGE;
 
 --CREATE TABLE categories (
 --    IdCategorie VARCHAR2(8) PRIMARY KEY, 
@@ -15,7 +15,7 @@ DROP TABLE ordonnance PURGE;
 --    Description varchar2(500)
 --);
 
---CREATE TABLE medicament (
+--CREATE TABLE medicaments (
 --    idMed VARCHAR2(8), 
 --   nomMed VARCHAR2(50), 
 --    prix number(9,2), 
@@ -67,8 +67,8 @@ CREATE TABLE docteur (
 
 CREATE TABLE dossierpatient (
     numDos VARCHAR2(16) PRIMARY KEY, 
-    nomP VARCHAR2(50) NOT NULL, 
-    prenomP VARCHAR2(50) NOT NULL, 
+    nomP VARCHAR2(30) NOT NULL, 
+    prenomP VARCHAR2(30) NOT NULL, 
     genre CHAR(1) CHECK (genre in ('M', 'F')), 
     numAS VARCHAR2(12) UNIQUE, 
     dateNaiss DATE, 
@@ -81,7 +81,7 @@ CREATE TABLE consultation (
     CodeDocteur VARCHAR2(8), 
     numDos VARCHAR2(16),
     dateC DATE, 
-    diagnostic VARCHAR2(50), 
+    diagnostic VARCHAR2(255), 
     numOrd NUMBER(8),
     PRIMARY KEY(CodeDocteur, numDos, dateC),
     FOREIGN KEY (CodeDocteur) REFERENCES docteur(matricule),
