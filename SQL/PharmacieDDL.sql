@@ -17,14 +17,14 @@ DROP TABLE ordonnance PURGE;
 
 --CREATE TABLE medicaments (
 --    idMed VARCHAR2(8), 
---   nomMed VARCHAR2(50), 
+--    nomMed VARCHAR2(50), 
 --    prix number(9,2), DEFAULT 0 CHECK (prix > 0)
 --    categorie
---  CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
+--    CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
 --);
 
 --CREATE TABLE specialite (
---  code,
+--    code,
 --    titre VARCHAR2(50), 
 --    description varchar2(500)
 --);
@@ -47,40 +47,40 @@ CREATE TABLE ordonnancechirurgie (
 
 CREATE TABLE ordonnancemedicaments (
     numOrd NUMBER(8),
-    id CHAR(8),
+    idMed CHAR(8),
     nbBoites NUMBER(3) DEFAULT 0 CHECK(nbBoites > 0),
-    PRIMARY KEY(numOrd, id),
+    PRIMARY KEY(numOrd, idMed),
     FOREIGN KEY (numOrd) REFERENCES ordonnance(numOrd),
-    FOREIGN KEY (id) REFERENCES medicaments(id)             -- id = idMed
+    FOREIGN KEY (idMed) REFERENCES medicaments(id)             -- id = idMed
 );
 
 CREATE TABLE docteur (
-    matricule VARCHAR2(8) PRIMARY KEY, 
+    matricule NUMBER(8) PRIMARY KEY, 
     nomM VARCHAR2(20) NOT NULL, 
     prenomM VARCHAR2(20) NOT NULL, 
     specialite NUMBER(2) , 
     ville VARCHAR2(20), 
     adresse VARCHAR2(50), 
-    niveau VARCHAR2(8) CHECK (niveau in ('Étudiant', 'Interne', 'Docteur')), 
+    niveau VARCHAR2(10) CHECK (niveau in ('Étudiant', 'Interne', 'Docteur')), 
     nbrPatients NUMBER(3) DEFAULT 0 CHECK (nbrPatients > 0),
     FOREIGN KEY(specialite) REFERENCES specialites(code)
 );
 
 CREATE TABLE dossierpatient (
-    numDos VARCHAR2(16) PRIMARY KEY, 
+    numDos NUMBER(10) PRIMARY KEY, 
     nomP VARCHAR2(30) NOT NULL, 
     prenomP VARCHAR2(30) NOT NULL, 
     genre CHAR(1) CHECK (genre in ('M', 'F')), 
     numAS VARCHAR2(12) UNIQUE, 
     dateNaiss DATE, 
     dateC DATE, 
-    matricule VARCHAR2(8),
+    matricule NUMBER(8),
     FOREIGN KEY(matricule) REFERENCES docteur(matricule)
 );
 
 CREATE TABLE consultation (
-    CodeDocteur VARCHAR2(8), 
-    numDos VARCHAR2(16),
+    CodeDocteur NUMBER(8), 
+    numDos NUMBER(10),
     dateC DATE, 
     diagnostic VARCHAR2(255), 
     numOrd NUMBER(8),
