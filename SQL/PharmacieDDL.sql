@@ -5,29 +5,34 @@ DROP TABLE docteur PURGE;
 DROP TABLE ordonnancechirurgie PURGE;
 DROP TABLE ordonnancemedicaments PURGE;
 DROP TABLE ordonnance PURGE;
---DROP TABLE specialite PURGE;
---DROP TABLE medicaments PURGE;
---DROP TABLE categories PURGE;
+/* -------------------------------- */
 
---CREATE TABLE categories (
---    IdCategorie VARCHAR2(8) PRIMARY KEY, 
---    nom VARCHAR2(50), 
---    Description varchar2(500)
---);
+DROP TABLE medicament;
+DROP TABLE specialite;
+DROP TABLE categorie;
 
---CREATE TABLE medicaments (
---    idMed VARCHAR2(8), 
---    nomMed VARCHAR2(50), 
---    prix number(9,2), DEFAULT 0 CHECK (prix > 0)
---    categorie
---    CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
---);
+-- CATEGORIES (IdCategorie, nom, Description)
+CREATE TABLE categorie (
+    id          NUMBER(2)       PRIMARY KEY,
+    nom         VARCHAR2(100)   NOT NULL UNIQUE,
+    description VARCHAR2(500)
+);
 
---CREATE TABLE specialite (
---    code,
---    titre VARCHAR2(50), 
---    description varchar2(500)
---);
+-- SPECIALITE (code, titre, description)
+CREATE TABLE specialite (
+    code        NUMBER(2)       PRIMARY KEY, 
+    titre       VARCHAR2(100)   NOT NULL UNIQUE,
+    description VARCHAR2(500)
+);
+
+-- MEDICAMENT (idMed, nomMed, prix, categorie)
+CREATE TABLE medicament (
+    id           CHAR(8)         PRIMARY KEY,
+    nom          VARCHAR2(150)   NOT NULL UNIQUE,
+    prix         NUMBER(8,2)     DEFAULT 0,
+    categorie_id NUMBER(2)       REFERENCES categorie(id)
+);
+
 
 --Création des tables
 CREATE TABLE ordonnance (
@@ -51,7 +56,7 @@ CREATE TABLE ordonnancemedicaments (
     nbBoites NUMBER(3) DEFAULT 0 CHECK(nbBoites > 0),
     PRIMARY KEY(numOrd, idMed),
     FOREIGN KEY (numOrd) REFERENCES ordonnance(numOrd),
-    FOREIGN KEY (idMed) REFERENCES medicaments(id)             -- id = idMed
+    FOREIGN KEY (idMed) REFERENCES medicament(id)             -- id = idMed
 );
 
 CREATE TABLE docteur (
@@ -63,7 +68,7 @@ CREATE TABLE docteur (
     adresse VARCHAR2(50), 
     niveau VARCHAR2(10) CHECK (niveau in ('Étudiant', 'Interne', 'Docteur')), 
     nbrPatients NUMBER(3) DEFAULT 0 CHECK (nbrPatients > 0),
-    FOREIGN KEY(specialite) REFERENCES specialites(code)
+    FOREIGN KEY(specialite) REFERENCES specialite(code)
 );
 
 CREATE TABLE dossierpatient (

@@ -5,13 +5,13 @@ DELETE docteur;
 DELETE ordonnancechirurgie;
 DELETE ordonnancemedicaments;
 DELETE ordonnance;
---DELETE specialite;
---DELETE medicament;
---DELETE categories;
+DELETE specialite;
+DELETE medicament;
+DELETE categorie;
 
---INSERT INTO categories
---INSERT INTO medicaments
---INSERT INTO specialite
+@insert_categorie.sql
+@insert_medicament.sql
+@insert_specialite.sql
 
 --Insertion de données dans toutes les tables
 INSERT INTO ordonnance (numOrd, recommandations, typeO, dateC)
