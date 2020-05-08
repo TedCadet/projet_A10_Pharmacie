@@ -5,10 +5,16 @@
  */
 package controleur;
 
+import DAO.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import dao.Requetes;
+import entite.Categories;
+import entite.Medicaments;
+import entite.Ordonnancemedicaments;
+import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -22,13 +28,17 @@ public class AppCtr {
     public static void main(String[] args) {
         
         SessionFactory sessionFactory = null;
-        Session session = null;
         
         try{
             sessionFactory = HibernateUtil.getSessionFactory();
-            session = sessionFactory.openSession();
             
+            /* code test pour insérer une donnée dans le tableau
+            Set<Ordonnancemedicaments> testOrdMed = new HashSet<>();
+            Medicaments medTest = new Medicaments("02222222", new Categories((byte) 8), "Test", new BigDecimal(22), testOrdMed);
+            DAO.delete(medTest);
+            */
             //code pour insérer un enregistrement par table
+            
             
             //code pour appeler les requêtes (static) du DAO
          
@@ -36,9 +46,6 @@ public class AppCtr {
             System.out.println(e.toString());
 
         } finally{
-            if(session != null){
-                session.close();
-            }
             if(sessionFactory != null){
                 sessionFactory.close();
             }

@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import controleur.NewHibernateUtil;
+import controleur.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -19,7 +19,7 @@ public abstract class DAO {
     // Méthode pour insérer une nouvelle entité
     public static <T>  void insert(T entite) {
         // ouvre la session
-        session = NewHibernateUtil.getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         
         // ouvre la transaction
         Transaction tx = session.beginTransaction();
@@ -37,7 +37,7 @@ public abstract class DAO {
     // Méthode pour supprimer une entité
     public static <T>  void delete(T entite) {
         // ouvre la session
-        session = NewHibernateUtil.getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         
         // ouvre la transaction
         Transaction tx = session.beginTransaction();
@@ -55,7 +55,7 @@ public abstract class DAO {
     // Méthode pour mettre a jour une entité
     public static <T>  void update(T entite) {
         // ouvre la session
-        session = NewHibernateUtil.getSessionFactory().openSession();
+        session = HibernateUtil.getSessionFactory().openSession();
         
         // ouvre la transaction
         Transaction tx = session.beginTransaction();
