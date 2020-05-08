@@ -10,6 +10,8 @@ import entite.Consultation;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Projections;
 
 /**
  *
@@ -25,16 +27,23 @@ public class ConsultationDAO extends DAO {
         // crée le critère avec la table Consultation comme base
         Criteria cr = session.createCriteria(Consultation.class);
         
-        // crée la requête qui va chercher le nombre de consultations par docteur
-        // avec un group by sur docteur.matricule, docteur.nomm, docteur.nomm
-        Query query = session.createQuery("SELECT docteur.matricule, docteur.nomm, docteur.prenomm, count(DISTINCT c.docteur) "
-                        + "FROM Consultation c join c.docteur docteur "
-                        + "GROUP BY docteur.matricule, docteur.nomm, docteur.prenomm");
+        // join avec docteur, donne lui l'alias d
+        cr.createAlias("docteur", "d");
         
+        /* instancie une projectionList pour recevoir les résultats du count
+        *  groupé par le matricule, le nom et le prénom
+        */
+        ProjectionList pl = Projections.projectionList();
+        pl.add(Projections.groupProperty("d.matricule"));
+        pl.add(Projections.groupProperty("d.nomm"));
+        pl.add(Projections.groupProperty("d.prenomm"));
+        pl.add(Projections.rowCount());
         
-        
+        // rajoute la projection au criteria
+        cr.setProjection(pl);
+ 
         // contient la liste des résultats
-        List<Object[]> resultats = query.list();
+        List<Object[]> resultats = cr.list();
         
         // boucle qui affiche chacun des résultats
         for(Object[] element : resultats) {
