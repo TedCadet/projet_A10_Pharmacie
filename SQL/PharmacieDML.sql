@@ -7,7 +7,7 @@ DELETE ordonnancemedicaments;
 DELETE ordonnance;
 DELETE specialite;
 DELETE medicament;
-DELETE categorie;
+DELETE categories;
 
 @insert_categorie.sql
 @insert_medicament.sql
