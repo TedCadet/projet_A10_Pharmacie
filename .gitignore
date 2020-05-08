@@ -23,3 +23,14 @@
 hs_err_pid*
 /dist/
 /build/
+
+# OSX Finder
+.DS_Store
+
+# Editor temp files
+*~
+*.swp
+
+# NetBeans
+/nbproject
+build.xml
