@@ -41,13 +41,13 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-schema="A18PROJET3"/>
-  <table-filter match-name="CONSULTATION"/>
   <table-filter match-name="ORDONNANCE"/>
-  <table-filter match-name="SPECIALITES"/>
-  <table-filter match-name="MEDICAMENTS"/>
-  <table-filter match-name="DOSSIERPATIENT"/>
+  <table-filter match-name="CONSULTATION"/>
+  <table-filter match-name="SPECIALITE"/>
   <table-filter match-name="ORDONNANCECHIRURGIE"/>
-  <table-filter match-name="CATEGORIES"/>
+  <table-filter match-name="MEDICAMENT"/>
   <table-filter match-name="DOCTEUR"/>
+  <table-filter match-name="DOSSIERPATIENT"/>
   <table-filter match-name="ORDONNANCEMEDICAMENTS"/>
+  <table-filter match-name="CATEGORIES"/>
 </hibernate-reverse-engineering>

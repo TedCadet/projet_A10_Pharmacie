@@ -9,11 +9,152 @@ DELETE specialite;
 DELETE medicament;
 DELETE categories;
 
-@insert_categorie.sql
-@insert_medicament.sql
-@insert_specialite.sql
-
 --Insertion de données dans toutes les tables
+/* Catégories médicaments (première classification seulement, RAMQ)
+ * -------------------------------
+ * Ronald Rodriguez <ronrsuarez@gmail.com>
+ * Source : https://www.ramq.gouv.qc.ca/SiteCollectionDocuments/liste_med/2020/liste_med_2020_03_04_fr.pdf
+ */
+INSERT INTO categories(IdCategorie, nom) VALUES (4, 'Anthistaminiques');
+INSERT INTO categories(IdCategorie, nom) VALUES (8, 'Anti-infectieux');
+INSERT INTO categories(IdCategorie, nom) VALUES (10, 'Antinéoplasiques');
+INSERT INTO categories(IdCategorie, nom) VALUES (12, 'Médicaments s.n.a');
+INSERT INTO categories(IdCategorie, nom) VALUES (20, 'Médicaments du sang');
+INSERT INTO categories(IdCategorie, nom) VALUES (24, 'Médicaments cardiovasculaires');
+INSERT INTO categories(IdCategorie, nom) VALUES (28, 'Médicaments s.n.c');
+INSERT INTO categories(IdCategorie, nom) VALUES (36, 'Agents diagnistiques');
+INSERT INTO categories(IdCategorie, nom) VALUES (40, 'Électrolytes-diurétiques');
+INSERT INTO categories(IdCategorie, nom) VALUES (48, 'Agents de voies respiratoires');
+INSERT INTO categories(IdCategorie, nom) VALUES (52, 'Médicaments O.R.L.O');
+INSERT INTO categories(IdCategorie, nom) VALUES (56, 'Médicaments gastro-intestinaux');
+INSERT INTO categories(IdCategorie, nom) VALUES (64, 'Antidotes de métaux lourds');
+INSERT INTO categories(IdCategorie, nom) VALUES (68, 'Hormones et substituts');
+INSERT INTO categories(IdCategorie, nom) VALUES (84, 'Peau et muqueuses');
+INSERT INTO categories(IdCategorie, nom) VALUES (86, 'Relaxants musculaires lisses');
+INSERT INTO categories(IdCategorie, nom) VALUES (88, 'Vitamines');
+INSERT INTO categories(IdCategorie, nom) VALUES (92, 'Autres médicaments');
+
+/* Médicaments 
+ * -----------
+ * Ronald Rodriguez <ronrsuarez@gmail.com>
+ * Source : https://www.ramq.gouv.qc.ca/SiteCollectionDocuments/liste_med/2020/liste_med_2020_03_04_fr.pdf
+ */
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00596612', 'Diphenhydramine (chlorhydrate de)', 4);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00878200', 'pms-Diphenhydramine', 4);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02246082', 'Flunarizine', 4);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00556734', 'Vermox', 8);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02230897', 'Biltricide', 8);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02380617', 'Jamp-Pyrantel Pamonate', 8);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02351218', 'Anastrozole', 10);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02382423', 'Bicalutamide', 10);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02421917', 'Sandoz Capecitabine', 10);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('01947923', 'Duvoid', 12);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02382857', 'Glycopyrrolate injection', 12);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02231675', 'Combivent UDV', 12);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02205963', 'Dexiron', 20);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00031100', 'Jamp-Sulfate Ferreux', 20);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00762954', 'Fer-in-Sol', 20);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02385465', 'Amiodarone', 24);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02275546', 'Flecainide', 24);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02269074', 'Lipidil EZ', 24);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02280167', 'Asatab', 28);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02485222', 'Rivasa 80 mg EC', 28);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02477661', 'Celecoxib', 28);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('99004879', 'Precision Xtra (Cétone)', 36);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('99101165', 'GlucoDr', 36);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00035149', 'Keto-Diastix', 36);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('80030520', 'Jamp-Sodium Bicarbonate', 40);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('80003773', 'Calcium 500', 40);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('80089349', 'Bio-Magnesium', 40);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('01950541', 'Rhinaris CS Anti-allergique', 48);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02247997', 'Singulair', 48);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02379317', 'Montelukast', 48);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02230621', 'Opticrom', 52);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02200864', 'Ciloxan', 52);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02326663', 'Erythromycin', 52);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02225182', 'Loperamide-2', 56);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02017512', 'Lactomax', 56);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00789429', 'Pancrease MT 16', 56);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('01981242', 'Desferal', 64);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00016055', 'Cuprimine', 64);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02243450', 'pms-Deferoxamine', 64);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02242029', 'Qvar', 68);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00851752', 'Pulmicort Turbuhaler', 68);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02285614', 'Alvesco', 68);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00030708', 'Bacitracine', 84);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00582301', 'Dalacin T', 84);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02297809', 'Metrogel', 84);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02163543', 'Apo-Oxybutynin', 86);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02299364', 'Riva-Oxybutynin', 86);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02458144', 'Solifenacin', 86);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02241500', 'Vitamine B 12', 88);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('02243525', 'Thiamine', 88);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('00781878', 'Vitamine K 1', 88);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('99100073', 'Monovalent-Chat', 92);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('99100079', 'Polyvalent - Pollen', 92);
+INSERT INTO medicament (idMed, nomMed, categorie) VALUES('99101147', 'Présaisonnier - Graminéeset Herbes à poux', 92);
+
+/* Spécialites médicales au Québec
+ * -------------------------------
+ * Ronald Rodriguez <ronrsuarez@gmail.com>
+ * Source : https://fr.wikipedia.org/wiki/Sp%C3%A9cialit%C3%A9_m%C3%A9dicale#Qu%C3%A9bec
+ */
+INSERT INTO specialite(code, titre) VALUES(01, 'Anatomo-pathologie');
+INSERT INTO specialite(code, titre) VALUES(02, 'Anesthésiologie');
+INSERT INTO specialite(code, titre) VALUES(03, 'Biochimie médicale');
+INSERT INTO specialite(code, titre) VALUES(04, 'Cardiologie');
+INSERT INTO specialite(code, titre) VALUES(05, 'Chirurgie cardiaque');
+INSERT INTO specialite(code, titre) VALUES(06, 'Chirurgie colorectale');
+INSERT INTO specialite(code, titre) VALUES(07, 'Chirurgie générale');
+INSERT INTO specialite(code, titre) VALUES(08, 'Chirurgie générale oncologique');
+INSERT INTO specialite(code, titre) VALUES(09, 'Chirurgie générale pédiatrique');
+INSERT INTO specialite(code, titre) VALUES(11, 'Chirurgie orthopédique');
+INSERT INTO specialite(code, titre) VALUES(12, 'Chirurgie plastique');
+INSERT INTO specialite(code, titre) VALUES(13, 'Chirurgie thoracique');
+INSERT INTO specialite(code, titre) VALUES(14, 'Chirurgie vasculaire');
+INSERT INTO specialite(code, titre) VALUES(15, 'Dermatologie');
+INSERT INTO specialite(code, titre) VALUES(16, 'Endocrinologie et méta');
+INSERT INTO specialite(code, titre) VALUES(17, 'Gastroentérologie');
+INSERT INTO specialite(code, titre) VALUES(18, 'Génétique médicale');
+INSERT INTO specialite(code, titre) VALUES(19, 'Gériatrie');
+INSERT INTO specialite(code, titre) VALUES(20, 'Hématologie');
+INSERT INTO specialite(code, titre) VALUES(21, 'Hématologie/oncologie pédiatrique');
+INSERT INTO specialite(code, titre) VALUES(22, 'Immunologie clinique et allergie');
+INSERT INTO specialite(code, titre) VALUES(23, 'Maladies infectieuses');
+INSERT INTO specialite(code, titre) VALUES(24, 'Médecine communautaire');
+INSERT INTO specialite(code, titre) VALUES(25, 'Médecine d’urgence');
+INSERT INTO specialite(code, titre) VALUES(26, 'Médecine d’urgence pédiatrique');
+INSERT INTO specialite(code, titre) VALUES(27, 'Médecine de famille');
+INSERT INTO specialite(code, titre) VALUES(28, 'Médecine de l''adolescence');
+INSERT INTO specialite(code, titre) VALUES(29, 'Médecine de soins intensifs');
+INSERT INTO specialite(code, titre) VALUES(30, 'Médecine du travail');
+INSERT INTO specialite(code, titre) VALUES(31, 'Médecine interne');
+INSERT INTO specialite(code, titre) VALUES(32, 'Médecine maternelle et fœtale');
+INSERT INTO specialite(code, titre) VALUES(33, 'Médecine néonatale et périnatale');
+INSERT INTO specialite(code, titre) VALUES(34, 'Médecine nucléaire');
+INSERT INTO specialite(code, titre) VALUES(35, 'Médecine physique et de réadaptation');
+INSERT INTO specialite(code, titre) VALUES(36, 'Microbiologie médicale');
+INSERT INTO specialite(code, titre) VALUES(37, 'Néphrologie');
+INSERT INTO specialite(code, titre) VALUES(38, 'Neurochirurgie');
+INSERT INTO specialite(code, titre) VALUES(39, 'Neurologie');
+INSERT INTO specialite(code, titre) VALUES(40, 'Neuropathologie');
+INSERT INTO specialite(code, titre) VALUES(41, 'Obstétrique et gynécologie');
+INSERT INTO specialite(code, titre) VALUES(42, 'Oncologie gynécologique');
+INSERT INTO specialite(code, titre) VALUES(43, 'Oncologie médicale');
+INSERT INTO specialite(code, titre) VALUES(44, 'Ophtalmologie');
+INSERT INTO specialite(code, titre) VALUES(45, 'Oto-rhino-laryngologie et chirurgie cervico-faciale');
+INSERT INTO specialite(code, titre) VALUES(46, 'Pathologie générale');
+INSERT INTO specialite(code, titre) VALUES(47, 'Pathologie hématologique');
+INSERT INTO specialite(code, titre) VALUES(48, 'Pathologie judiciaire');
+INSERT INTO specialite(code, titre) VALUES(49, 'Pédiatrie');
+INSERT INTO specialite(code, titre) VALUES(50, 'Pneumologie');
+INSERT INTO specialite(code, titre) VALUES(51, 'Psychiatrie');
+INSERT INTO specialite(code, titre) VALUES(52, 'Radiologie diagnostique');
+INSERT INTO specialite(code, titre) VALUES(53, 'Radio-oncologie');
+INSERT INTO specialite(code, titre) VALUES(54, 'Rhumatologie');
+INSERT INTO specialite(code, titre) VALUES(55, 'Urologie');
+
+
 INSERT INTO ordonnance (numOrd, recommandations, typeO, dateC)
 VALUES(10125746,'','chirurgie',TO_DATE('04-03-2020','DD-MM-YYYY'));
 INSERT INTO ordonnance (numOrd, recommandations, typeO, dateC)

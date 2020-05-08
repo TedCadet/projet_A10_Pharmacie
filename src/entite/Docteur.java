@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -23,8 +23,8 @@ import javax.persistence.Table;
 public class Docteur  implements java.io.Serializable {
 
 
-     private String matricule;
-     private Specialites specialites;
+     private int matricule;
+     private Specialite specialite;
      private String nomm;
      private String prenomm;
      private String ville;
@@ -38,14 +38,14 @@ public class Docteur  implements java.io.Serializable {
     }
 
 	
-    public Docteur(String matricule, String nomm, String prenomm) {
+    public Docteur(int matricule, String nomm, String prenomm) {
         this.matricule = matricule;
         this.nomm = nomm;
         this.prenomm = prenomm;
     }
-    public Docteur(String matricule, Specialites specialites, String nomm, String prenomm, String ville, String adresse, String niveau, Short nbrpatients, Set<Consultation> consultations, Set<Dossierpatient> dossierpatients) {
+    public Docteur(int matricule, Specialite specialite, String nomm, String prenomm, String ville, String adresse, String niveau, Short nbrpatients, Set<Consultation> consultations, Set<Dossierpatient> dossierpatients) {
        this.matricule = matricule;
-       this.specialites = specialites;
+       this.specialite = specialite;
        this.nomm = nomm;
        this.prenomm = prenomm;
        this.ville = ville;
@@ -59,23 +59,23 @@ public class Docteur  implements java.io.Serializable {
      @Id 
 
     
-    @Column(name="MATRICULE", unique=true, nullable=false, length=8)
-    public String getMatricule() {
+    @Column(name="MATRICULE", unique=true, nullable=false, precision=8, scale=0)
+    public int getMatricule() {
         return this.matricule;
     }
     
-    public void setMatricule(String matricule) {
+    public void setMatricule(int matricule) {
         this.matricule = matricule;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="SPECIALITE")
-    public Specialites getSpecialites() {
-        return this.specialites;
+    public Specialite getSpecialite() {
+        return this.specialite;
     }
     
-    public void setSpecialites(Specialites specialites) {
-        this.specialites = specialites;
+    public void setSpecialite(Specialite specialite) {
+        this.specialite = specialite;
     }
 
     
@@ -119,7 +119,7 @@ public class Docteur  implements java.io.Serializable {
     }
 
     
-    @Column(name="NIVEAU", length=8)
+    @Column(name="NIVEAU", length=10)
     public String getNiveau() {
         return this.niveau;
     }

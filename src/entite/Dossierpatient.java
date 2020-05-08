@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -28,7 +28,7 @@ import javax.persistence.UniqueConstraint;
 public class Dossierpatient  implements java.io.Serializable {
 
 
-     private String numdos;
+     private long numdos;
      private Docteur docteur;
      private String nomp;
      private String prenomp;
@@ -42,12 +42,12 @@ public class Dossierpatient  implements java.io.Serializable {
     }
 
 	
-    public Dossierpatient(String numdos, String nomp, String prenomp) {
+    public Dossierpatient(long numdos, String nomp, String prenomp) {
         this.numdos = numdos;
         this.nomp = nomp;
         this.prenomp = prenomp;
     }
-    public Dossierpatient(String numdos, Docteur docteur, String nomp, String prenomp, Character genre, String numas, Date datenaiss, Date datec, Set<Consultation> consultations) {
+    public Dossierpatient(long numdos, Docteur docteur, String nomp, String prenomp, Character genre, String numas, Date datenaiss, Date datec, Set<Consultation> consultations) {
        this.numdos = numdos;
        this.docteur = docteur;
        this.nomp = nomp;
@@ -62,12 +62,12 @@ public class Dossierpatient  implements java.io.Serializable {
      @Id 
 
     
-    @Column(name="NUMDOS", unique=true, nullable=false, length=16)
-    public String getNumdos() {
+    @Column(name="NUMDOS", unique=true, nullable=false, precision=10, scale=0)
+    public long getNumdos() {
         return this.numdos;
     }
     
-    public void setNumdos(String numdos) {
+    public void setNumdos(long numdos) {
         this.numdos = numdos;
     }
 

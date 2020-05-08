@@ -5,22 +5,22 @@ DROP TABLE docteur PURGE;
 DROP TABLE ordonnancechirurgie PURGE;
 DROP TABLE ordonnancemedicaments PURGE;
 DROP TABLE ordonnance PURGE;
-DROP TABLE medicament   PURGE;
-DROP TABLE specialite   PURGE;
-DROP TABLE categories   PURGE;
+DROP TABLE medicament PURGE;
+DROP TABLE specialite PURGE;
+DROP TABLE categories PURGE;
 
 -- CATEGORIES (IdCategorie, nom, Description)
 CREATE TABLE categories (
     IdCategorie NUMBER(2)       PRIMARY KEY,
     nom         VARCHAR2(100)   NOT NULL UNIQUE,
-    Description VARCHAR2(500)
+    Description VARCHAR2(255)
 );
 
 -- SPECIALITE (code, titre, description)
 CREATE TABLE specialite (
     code        NUMBER(2)       PRIMARY KEY, 
     titre       VARCHAR2(100)   NOT NULL UNIQUE,
-    description VARCHAR2(500)
+    description VARCHAR2(255)
 );
 
 -- MEDICAMENT (idMed, nomMed, prix, categorie)
@@ -28,12 +28,11 @@ CREATE TABLE medicament (
     idMed        CHAR(8)         PRIMARY KEY,
     nomMed       VARCHAR2(150)   NOT NULL,
     prix         NUMBER(8,2)     DEFAULT 0,
-    categorie  NUMBER(2)       REFERENCES categories(IdCategorie),
+    categorie    NUMBER(2)       REFERENCES categories(IdCategorie),
     
     CONSTRAINT medicament_nom_cat_uq UNIQUE (nomMed, categorie),
     CONSTRAINT medicament_prix_ck CHECK (prix >= 0)
 );
-
 
 -- ORDONNANCE (numOrd, recommandations, typeO, dateC)
 CREATE TABLE ordonnance (
