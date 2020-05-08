@@ -47,7 +47,6 @@ Contributor(s):
     <property name="hibernate.connection.username">a18projet3</property>
     <property name="hibernate.connection.password">a1nypw</property>
     <mapping class="entite.Ordonnancechirurgie"/>
-    <mapping class="entite.OrdonnancemedicamentsId"/>
     <mapping class="entite.Categories"/>
     <mapping class="entite.Ordonnance"/>
     <mapping class="entite.Consultation"/>
@@ -55,5 +54,6 @@ Contributor(s):
     <mapping class="entite.Dossierpatient"/>
     <mapping class="entite.Specialite"/>
     <mapping class="entite.Medicament"/>
+    <mapping class="entite.Ordonnancemedicaments"/>
   </session-factory>
 </hibernate-configuration>
