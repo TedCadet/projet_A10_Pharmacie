@@ -99,6 +99,8 @@ public class AppCtr {
             //code pour appeler les requêtes (static) du DAO
             Map<Docteur,Long> chirurgiesParDocteur = DocteurDAO.chirurgiesPrescritesParDocteur();
             afficherChirurgiesParDocteur(chirurgiesParDocteur);
+            
+            ConsultationDAO.getTotalConsultationsPerYear();
          
             ConsultationDAO.consultParDocteurs();
         } catch(HibernateException e){
