@@ -58,19 +58,23 @@ public class AppCtr {
             DAO.insert(catTest);
             
             //code test pour insérer une donnée "Ordonnance" dans le tableau 
-            Ordonnance ordTest = new Ordonnance(10352222, null, "chirurgie", new Date(), null, null, null);
-            DAO.delete(ordTest);
-            DAO.insert(ordTest);
+            Ordonnance ord1Test = new Ordonnance(10352222, null, "chirurgie", new Date(), null, null, null);
+            DAO.delete(ord1Test);
+            DAO.insert(ord1Test);
+            
+            Ordonnance ord2Test = new Ordonnance(10352299, null, "medicament", new Date(), null, null, null);
+            //DAO.delete(ord2Test);
+            //DAO.insert(ord2Test);
             
             //code test pour insérer une donnée "Docteur" dans le tableau
             Docteur docTest = new Docteur(29672222, null, "nomTest", "prenomTest", "villeTest", "adresseTest", "Interne", (short) 22, null, null);
-            DAO.delete(docTest); 
-            DAO.insert(docTest);
+            //DAO.delete(docTest); 
+            //DAO.insert(docTest);
             
             //code test pour insérer une donnée "Dossierpatient" dans le tableau
             Dossierpatient dosPatTest = new Dossierpatient((long) 22, null, "nomTest", "prenomTest", 'M', "TEST2222", null, null, null);
-            DAO.delete(dosPatTest);
-            DAO.insert(dosPatTest);
+            //DAO.delete(dosPatTest);
+            //DAO.insert(dosPatTest);
             
             //code test pour insérer une donnée "Specialite" dans le tableau
             Specialite specTest = new Specialite((byte) 22, "titreTest", "descriptionTest", null);
@@ -83,14 +87,14 @@ public class AppCtr {
             //DAO.insert(ordChiTest);
             
             //code test pour insérer une donnée "Ordonnancemedicaments" dans le tableau ** fonctionne pas
-            Ordonnancemedicaments ordMedTest = new Ordonnancemedicaments(new OrdonnancemedicamentsId(10352222, "02222222"), null, null, (short) 22);
+            Ordonnancemedicaments ordMedTest = new Ordonnancemedicaments(new OrdonnancemedicamentsId(10352299, "02222222"), null, null, (short) 22);
             //DAO.delete(ordMedTest);
             //DAO.insert(ordMedTest);
             
             //code test pour insérer une donnée "Consultation" 
             Consultation conTest = new Consultation(new ConsultationId(29672222, (long) 22, new Date()), null, null, null, "DiagnoticsTest");
-            DAO.delete(conTest);
-            DAO.insert(conTest);
+            //DAO.delete(conTest);
+            //DAO.insert(conTest);
             
             //code pour appeler les requêtes (static) du DAO
             Map<Docteur,Long> chirurgiesParDocteur = DocteurDAO.chirurgiesPrescritesParDocteur();
