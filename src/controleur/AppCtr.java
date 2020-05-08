@@ -6,6 +6,7 @@
 package controleur;
 
 import DAO.DAO;
+import DAO.DocteurDAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -41,6 +42,9 @@ public class AppCtr {
             
             
             //code pour appeler les requêtes (static) du DAO
+            
+            
+            DocteurDAO.chirurgiesPrescritesParDocteur();
          
         } catch(HibernateException e){
             System.out.println(e.toString());
