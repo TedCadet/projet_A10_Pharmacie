@@ -49,6 +49,8 @@ public class AppCtr {
             
             Map<Docteur,Long> chirurgiesParDocteur = DocteurDAO.chirurgiesPrescritesParDocteur();
             afficherChirurgiesParDocteur(chirurgiesParDocteur);
+            
+            ConsultationDAO.getTotalConsultationsPerYear();
          
             ConsultationDAO.consultParDocteurs();
         } catch(HibernateException e){

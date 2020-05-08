@@ -52,5 +52,17 @@ public class ConsultationDAO extends DAO {
         session.close();           
     }
     
-    
+    public static void getTotalConsultationsPerYear(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        Query query = session.createQuery("SELECT YEAR(id.datec), COUNT(*)" +
+                                          "FROM Consultation " + 
+                                          "GROUP BY YEAR(id.datec)");
+        List<Object[]> results = query.list();
+        System.out.println("  ANNÉE  |   CONSULTATIONS  ");
+        System.out.println("____________________________");
+        for(Object[] line : results){
+            System.out.println("   " + line[0] + "  |  " + line[1]); 
+            System.out.println("----------------------------");
+        }
+    }
 }
