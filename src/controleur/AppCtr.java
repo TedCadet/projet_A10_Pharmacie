@@ -5,6 +5,7 @@
  */
 package controleur;
 
+import DAO.ConsultationDAO;
 import DAO.DAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -32,7 +33,7 @@ public class AppCtr {
         try{
             sessionFactory = HibernateUtil.getSessionFactory();
             
-            /* code test pour insérer une donnée dans le tableau
+            /* code test pour insérer une donnée "Médicament" dans le tableau
             Set<Ordonnancemedicaments> testOrdMed = new HashSet<>();
             Medicaments medTest = new Medicaments("02222222", new Categories((byte) 8), "Test", new BigDecimal(22), testOrdMed);
             DAO.delete(medTest);
@@ -41,7 +42,7 @@ public class AppCtr {
             
             
             //code pour appeler les requêtes (static) du DAO
-         
+            ConsultationDAO.consultParDocteurs();
         } catch(HibernateException e){
             System.out.println(e.toString());
 
