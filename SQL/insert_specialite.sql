@@ -57,4 +57,4 @@ INSERT INTO specialite(code, titre) VALUES(51, 'Psychiatrie');
 INSERT INTO specialite(code, titre) VALUES(52, 'Radiologie diagnostique');
 INSERT INTO specialite(code, titre) VALUES(53, 'Radio-oncologie');
 INSERT INTO specialite(code, titre) VALUES(54, 'Rhumatologie');
-INSERT INTO specialite(code, titre) VALUES(55, 'UrINSERVALUES
+INSERT INTO specialite(code, titre) VALUES(55, 'Urologie');
