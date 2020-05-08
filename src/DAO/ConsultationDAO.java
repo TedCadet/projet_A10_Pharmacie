@@ -12,6 +12,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.ProjectionList;
 import org.hibernate.criterion.Projections;
+import utils.Utilitaire;
 
 /**
  *
@@ -45,12 +46,11 @@ public class ConsultationDAO extends DAO {
         // contient la liste des résultats
         List<Object[]> resultats = cr.list();
         
-        // boucle qui affiche chacun des résultats
-        for(Object[] element : resultats) {
-            System.out.println("matricule: " + element[0] + " - nom: " + element[1] + " - prenom: " + element[2] + " - consultations: " + element[3]);
-        }
         
+        Utilitaire.afficheTableau(resultats,new String[]{"matricule","nom","prenom","consultations"});
         // ferme la session
         session.close();           
     }
+    
+    
 }
