@@ -10,7 +10,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import entite.Categories;
-import entite.Medicaments;
+import entite.Medicament;
 import entite.Ordonnancemedicaments;
 import java.math.BigDecimal;
 import java.util.HashSet;

@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
@@ -24,22 +24,22 @@ public class Ordonnancemedicaments  implements java.io.Serializable {
 
      private OrdonnancemedicamentsId id;
      private Ordonnance ordonnance;
-     private Medicaments medicaments;
+     private Medicament medicament;
      private Short nbboites;
 
     public Ordonnancemedicaments() {
     }
 
 	
-    public Ordonnancemedicaments(OrdonnancemedicamentsId id, Ordonnance ordonnance, Medicaments medicaments) {
+    public Ordonnancemedicaments(OrdonnancemedicamentsId id, Ordonnance ordonnance, Medicament medicament) {
         this.id = id;
         this.ordonnance = ordonnance;
-        this.medicaments = medicaments;
+        this.medicament = medicament;
     }
-    public Ordonnancemedicaments(OrdonnancemedicamentsId id, Ordonnance ordonnance, Medicaments medicaments, Short nbboites) {
+    public Ordonnancemedicaments(OrdonnancemedicamentsId id, Ordonnance ordonnance, Medicament medicament, Short nbboites) {
        this.id = id;
        this.ordonnance = ordonnance;
-       this.medicaments = medicaments;
+       this.medicament = medicament;
        this.nbboites = nbboites;
     }
    
@@ -48,7 +48,7 @@ public class Ordonnancemedicaments  implements java.io.Serializable {
     
     @AttributeOverrides( {
         @AttributeOverride(name="numord", column=@Column(name="NUMORD", nullable=false, precision=8, scale=0) ), 
-        @AttributeOverride(name="id", column=@Column(name="ID", nullable=false, length=8) ) } )
+        @AttributeOverride(name="idmed", column=@Column(name="IDMED", nullable=false, length=8) ) } )
     public OrdonnancemedicamentsId getId() {
         return this.id;
     }
@@ -68,13 +68,13 @@ public class Ordonnancemedicaments  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="ID", nullable=false, insertable=false, updatable=false)
-    public Medicaments getMedicaments() {
-        return this.medicaments;
+    @JoinColumn(name="IDMED", nullable=false, insertable=false, updatable=false)
+    public Medicament getMedicament() {
+        return this.medicament;
     }
     
-    public void setMedicaments(Medicaments medicaments) {
-        this.medicaments = medicaments;
+    public void setMedicament(Medicament medicament) {
+        this.medicament = medicament;
     }
 
     

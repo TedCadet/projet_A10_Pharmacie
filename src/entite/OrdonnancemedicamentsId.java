@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -13,14 +13,14 @@ public class OrdonnancemedicamentsId  implements java.io.Serializable {
 
 
      private int numord;
-     private String id;
+     private String idmed;
 
     public OrdonnancemedicamentsId() {
     }
 
-    public OrdonnancemedicamentsId(int numord, String id) {
+    public OrdonnancemedicamentsId(int numord, String idmed) {
        this.numord = numord;
-       this.id = id;
+       this.idmed = idmed;
     }
    
 
@@ -35,13 +35,13 @@ public class OrdonnancemedicamentsId  implements java.io.Serializable {
     }
 
 
-    @Column(name="ID", nullable=false, length=8)
-    public String getId() {
-        return this.id;
+    @Column(name="IDMED", nullable=false, length=8)
+    public String getIdmed() {
+        return this.idmed;
     }
     
-    public void setId(String id) {
-        this.id = id;
+    public void setIdmed(String idmed) {
+        this.idmed = idmed;
     }
 
 
@@ -52,14 +52,14 @@ public class OrdonnancemedicamentsId  implements java.io.Serializable {
 		 OrdonnancemedicamentsId castOther = ( OrdonnancemedicamentsId ) other; 
          
 		 return (this.getNumord()==castOther.getNumord())
- && ( (this.getId()==castOther.getId()) || ( this.getId()!=null && castOther.getId()!=null && this.getId().equals(castOther.getId()) ) );
+ && ( (this.getIdmed()==castOther.getIdmed()) || ( this.getIdmed()!=null && castOther.getIdmed()!=null && this.getIdmed().equals(castOther.getIdmed()) ) );
    }
    
    public int hashCode() {
          int result = 17;
          
          result = 37 * result + this.getNumord();
-         result = 37 * result + ( getId() == null ? 0 : this.getId().hashCode() );
+         result = 37 * result + ( getIdmed() == null ? 0 : this.getIdmed().hashCode() );
          return result;
    }   
 

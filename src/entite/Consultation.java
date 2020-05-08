@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.AttributeOverride;
@@ -23,25 +23,25 @@ public class Consultation  implements java.io.Serializable {
 
 
      private ConsultationId id;
-     private Ordonnance ordonnance;
-     private Docteur docteur;
      private Dossierpatient dossierpatient;
+     private Docteur docteur;
+     private Ordonnance ordonnance;
      private String diagnostic;
 
     public Consultation() {
     }
 
 	
-    public Consultation(ConsultationId id, Docteur docteur, Dossierpatient dossierpatient) {
+    public Consultation(ConsultationId id, Dossierpatient dossierpatient, Docteur docteur) {
         this.id = id;
-        this.docteur = docteur;
         this.dossierpatient = dossierpatient;
+        this.docteur = docteur;
     }
-    public Consultation(ConsultationId id, Ordonnance ordonnance, Docteur docteur, Dossierpatient dossierpatient, String diagnostic) {
+    public Consultation(ConsultationId id, Dossierpatient dossierpatient, Docteur docteur, Ordonnance ordonnance, String diagnostic) {
        this.id = id;
-       this.ordonnance = ordonnance;
-       this.docteur = docteur;
        this.dossierpatient = dossierpatient;
+       this.docteur = docteur;
+       this.ordonnance = ordonnance;
        this.diagnostic = diagnostic;
     }
    
@@ -49,8 +49,8 @@ public class Consultation  implements java.io.Serializable {
 
     
     @AttributeOverrides( {
-        @AttributeOverride(name="codedocteur", column=@Column(name="CODEDOCTEUR", nullable=false, length=8) ), 
-        @AttributeOverride(name="numdos", column=@Column(name="NUMDOS", nullable=false, length=16) ), 
+        @AttributeOverride(name="codedocteur", column=@Column(name="CODEDOCTEUR", nullable=false, precision=8, scale=0) ), 
+        @AttributeOverride(name="numdos", column=@Column(name="NUMDOS", nullable=false, precision=10, scale=0) ), 
         @AttributeOverride(name="datec", column=@Column(name="DATEC", nullable=false, length=7) ) } )
     public ConsultationId getId() {
         return this.id;
@@ -61,13 +61,13 @@ public class Consultation  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="NUMORD")
-    public Ordonnance getOrdonnance() {
-        return this.ordonnance;
+    @JoinColumn(name="NUMDOS", nullable=false, insertable=false, updatable=false)
+    public Dossierpatient getDossierpatient() {
+        return this.dossierpatient;
     }
     
-    public void setOrdonnance(Ordonnance ordonnance) {
-        this.ordonnance = ordonnance;
+    public void setDossierpatient(Dossierpatient dossierpatient) {
+        this.dossierpatient = dossierpatient;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -81,13 +81,13 @@ public class Consultation  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="NUMDOS", nullable=false, insertable=false, updatable=false)
-    public Dossierpatient getDossierpatient() {
-        return this.dossierpatient;
+    @JoinColumn(name="NUMORD")
+    public Ordonnance getOrdonnance() {
+        return this.ordonnance;
     }
     
-    public void setDossierpatient(Dossierpatient dossierpatient) {
-        this.dossierpatient = dossierpatient;
+    public void setOrdonnance(Ordonnance ordonnance) {
+        this.ordonnance = ordonnance;
     }
 
     

@@ -47,16 +47,7 @@ Contributor(s):
     <property name="hibernate.connection.username">a18projet3</property>
     <property name="hibernate.connection.password">a1nypw</property>
     <mapping class="entite.Ordonnancechirurgie"/>
-    <mapping class="entite.Specialites"/>
     <mapping class="entite.OrdonnancemedicamentsId"/>
     <mapping class="entite.Categories"/>
-    <mapping class="entite.Medicaments"/>
-    <mapping class="entite.Ordonnance"/>
-    <mapping class="entite.Ordonnancemedicaments"/>
-    <mapping class="entite.Docteur"/>
-    <mapping class="entite.ConsultationId"/>
-    <mapping class="entite.Consultation"/>
-    <mapping class="entite.OrdonnancechirurgieId"/>
-    <mapping class="entite.Dossierpatient"/>
   </session-factory>
 </hibernate-configuration>

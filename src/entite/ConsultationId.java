@@ -1,5 +1,5 @@
 package entite;
-// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
+// Generated 8-May-2020 12:51:34 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,14 +13,14 @@ import javax.persistence.Embeddable;
 public class ConsultationId  implements java.io.Serializable {
 
 
-     private String codedocteur;
-     private String numdos;
+     private int codedocteur;
+     private long numdos;
      private Date datec;
 
     public ConsultationId() {
     }
 
-    public ConsultationId(String codedocteur, String numdos, Date datec) {
+    public ConsultationId(int codedocteur, long numdos, Date datec) {
        this.codedocteur = codedocteur;
        this.numdos = numdos;
        this.datec = datec;
@@ -28,22 +28,22 @@ public class ConsultationId  implements java.io.Serializable {
    
 
 
-    @Column(name="CODEDOCTEUR", nullable=false, length=8)
-    public String getCodedocteur() {
+    @Column(name="CODEDOCTEUR", nullable=false, precision=8, scale=0)
+    public int getCodedocteur() {
         return this.codedocteur;
     }
     
-    public void setCodedocteur(String codedocteur) {
+    public void setCodedocteur(int codedocteur) {
         this.codedocteur = codedocteur;
     }
 
 
-    @Column(name="NUMDOS", nullable=false, length=16)
-    public String getNumdos() {
+    @Column(name="NUMDOS", nullable=false, precision=10, scale=0)
+    public long getNumdos() {
         return this.numdos;
     }
     
-    public void setNumdos(String numdos) {
+    public void setNumdos(long numdos) {
         this.numdos = numdos;
     }
 
@@ -64,16 +64,16 @@ public class ConsultationId  implements java.io.Serializable {
 		 if ( !(other instanceof ConsultationId) ) return false;
 		 ConsultationId castOther = ( ConsultationId ) other; 
          
-		 return ( (this.getCodedocteur()==castOther.getCodedocteur()) || ( this.getCodedocteur()!=null && castOther.getCodedocteur()!=null && this.getCodedocteur().equals(castOther.getCodedocteur()) ) )
- && ( (this.getNumdos()==castOther.getNumdos()) || ( this.getNumdos()!=null && castOther.getNumdos()!=null && this.getNumdos().equals(castOther.getNumdos()) ) )
+		 return (this.getCodedocteur()==castOther.getCodedocteur())
+ && (this.getNumdos()==castOther.getNumdos())
  && ( (this.getDatec()==castOther.getDatec()) || ( this.getDatec()!=null && castOther.getDatec()!=null && this.getDatec().equals(castOther.getDatec()) ) );
    }
    
    public int hashCode() {
          int result = 17;
          
-         result = 37 * result + ( getCodedocteur() == null ? 0 : this.getCodedocteur().hashCode() );
-         result = 37 * result + ( getNumdos() == null ? 0 : this.getNumdos().hashCode() );
+         result = 37 * result + this.getCodedocteur();
+         result = 37 * result + (int) this.getNumdos();
          result = 37 * result + ( getDatec() == null ? 0 : this.getDatec().hashCode() );
          return result;
    }   
