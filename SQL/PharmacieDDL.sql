@@ -17,14 +17,14 @@ DROP TABLE ordonnance PURGE;
 
 --CREATE TABLE medicaments (
 --    idMed VARCHAR2(8), 
---   nomMed VARCHAR2(50), 
+--    nomMed VARCHAR2(50), 
 --    prix number(9,2), DEFAULT 0 CHECK (prix > 0)
 --    categorie
---  CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
+--    CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
 --);
 
 --CREATE TABLE specialite (
---  code,
+--    code,
 --    titre VARCHAR2(50), 
 --    description varchar2(500)
 --);
