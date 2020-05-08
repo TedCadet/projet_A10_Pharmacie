@@ -46,14 +46,17 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:oracle:thin:@144.217.163.57:1521:XE</property>
     <property name="hibernate.connection.username">a18projet3</property>
     <property name="hibernate.connection.password">a1nypw</property>
-    <mapping resource="entity/Categories.hbm.xml"/>
-    <mapping resource="entity/Dossierpatient.hbm.xml"/>
-    <mapping resource="entity/Docteur.hbm.xml"/>
-    <mapping resource="entity/Ordonnancechirurgie.hbm.xml"/>
-    <mapping resource="entity/Ordonnancemedicaments.hbm.xml"/>
-    <mapping resource="entity/Medicaments.hbm.xml"/>
-    <mapping resource="entity/Specialites.hbm.xml"/>
-    <mapping resource="entity/Consultation.hbm.xml"/>
-    <mapping resource="entity/Ordonnance.hbm.xml"/>
+    <mapping class="entite.Ordonnancechirurgie"/>
+    <mapping class="entite.Specialites"/>
+    <mapping class="entite.OrdonnancemedicamentsId"/>
+    <mapping class="entite.Categories"/>
+    <mapping class="entite.Medicaments"/>
+    <mapping class="entite.Ordonnance"/>
+    <mapping class="entite.Ordonnancemedicaments"/>
+    <mapping class="entite.Docteur"/>
+    <mapping class="entite.ConsultationId"/>
+    <mapping class="entite.Consultation"/>
+    <mapping class="entite.OrdonnancechirurgieId"/>
+    <mapping class="entite.Dossierpatient"/>
   </session-factory>
 </hibernate-configuration>

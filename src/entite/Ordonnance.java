@@ -1,5 +1,5 @@
-package entity;
-// Generated 28-Apr-2020 9:49:00 PM by Hibernate Tools 4.3.1
+package entite;
+// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -28,8 +28,8 @@ public class Ordonnance  implements java.io.Serializable {
      private String recommandations;
      private String typeo;
      private Date datec;
-     private Set<Ordonnancechirurgie> ordonnancechirurgies = new HashSet<Ordonnancechirurgie>(0);
      private Set<Ordonnancemedicaments> ordonnancemedicamentses = new HashSet<Ordonnancemedicaments>(0);
+     private Set<Ordonnancechirurgie> ordonnancechirurgies = new HashSet<Ordonnancechirurgie>(0);
      private Set<Consultation> consultations = new HashSet<Consultation>(0);
 
     public Ordonnance() {
@@ -39,13 +39,13 @@ public class Ordonnance  implements java.io.Serializable {
     public Ordonnance(int numord) {
         this.numord = numord;
     }
-    public Ordonnance(int numord, String recommandations, String typeo, Date datec, Set<Ordonnancechirurgie> ordonnancechirurgies, Set<Ordonnancemedicaments> ordonnancemedicamentses, Set<Consultation> consultations) {
+    public Ordonnance(int numord, String recommandations, String typeo, Date datec, Set<Ordonnancemedicaments> ordonnancemedicamentses, Set<Ordonnancechirurgie> ordonnancechirurgies, Set<Consultation> consultations) {
        this.numord = numord;
        this.recommandations = recommandations;
        this.typeo = typeo;
        this.datec = datec;
-       this.ordonnancechirurgies = ordonnancechirurgies;
        this.ordonnancemedicamentses = ordonnancemedicamentses;
+       this.ordonnancechirurgies = ordonnancechirurgies;
        this.consultations = consultations;
     }
    
@@ -92,21 +92,21 @@ public class Ordonnance  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="ordonnance")
-    public Set<Ordonnancechirurgie> getOrdonnancechirurgies() {
-        return this.ordonnancechirurgies;
-    }
-    
-    public void setOrdonnancechirurgies(Set<Ordonnancechirurgie> ordonnancechirurgies) {
-        this.ordonnancechirurgies = ordonnancechirurgies;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="ordonnance")
     public Set<Ordonnancemedicaments> getOrdonnancemedicamentses() {
         return this.ordonnancemedicamentses;
     }
     
     public void setOrdonnancemedicamentses(Set<Ordonnancemedicaments> ordonnancemedicamentses) {
         this.ordonnancemedicamentses = ordonnancemedicamentses;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="ordonnance")
+    public Set<Ordonnancechirurgie> getOrdonnancechirurgies() {
+        return this.ordonnancechirurgies;
+    }
+    
+    public void setOrdonnancechirurgies(Set<Ordonnancechirurgie> ordonnancechirurgies) {
+        this.ordonnancechirurgies = ordonnancechirurgies;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="ordonnance")

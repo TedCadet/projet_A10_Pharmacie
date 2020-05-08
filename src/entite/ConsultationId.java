@@ -1,8 +1,7 @@
-package entity;
-// Generated 28-Apr-2020 9:49:00 PM by Hibernate Tools 4.3.1
+package entite;
+// Generated 7-May-2020 8:57:20 PM by Hibernate Tools 4.3.1
 
 
-import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -15,13 +14,13 @@ public class ConsultationId  implements java.io.Serializable {
 
 
      private String codedocteur;
-     private BigDecimal numdos;
+     private String numdos;
      private Date datec;
 
     public ConsultationId() {
     }
 
-    public ConsultationId(String codedocteur, BigDecimal numdos, Date datec) {
+    public ConsultationId(String codedocteur, String numdos, Date datec) {
        this.codedocteur = codedocteur;
        this.numdos = numdos;
        this.datec = datec;
@@ -39,12 +38,12 @@ public class ConsultationId  implements java.io.Serializable {
     }
 
 
-    @Column(name="NUMDOS", nullable=false, precision=22, scale=0)
-    public BigDecimal getNumdos() {
+    @Column(name="NUMDOS", nullable=false, length=16)
+    public String getNumdos() {
         return this.numdos;
     }
     
-    public void setNumdos(BigDecimal numdos) {
+    public void setNumdos(String numdos) {
         this.numdos = numdos;
     }
 

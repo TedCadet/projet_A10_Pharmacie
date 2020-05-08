@@ -18,8 +18,9 @@ DROP TABLE ordonnance PURGE;
 --CREATE TABLE medicaments (
 --    idMed VARCHAR2(8), 
 --   nomMed VARCHAR2(50), 
---    prix number(9,2), 
+--    prix number(9,2), DEFAULT 0 CHECK (prix > 0)
 --    categorie
+--  CONSTRAINT nomMed_categorie_uc UNIQUE(nomMed, categorie)
 --);
 
 --CREATE TABLE specialite (
@@ -47,7 +48,7 @@ CREATE TABLE ordonnancechirurgie (
 CREATE TABLE ordonnancemedicaments (
     numOrd NUMBER(8),
     id CHAR(8),
-    nbBoites NUMBER(3) DEFAULT 0,
+    nbBoites NUMBER(3) DEFAULT 0 CHECK(nbBoites > 0),
     PRIMARY KEY(numOrd, id),
     FOREIGN KEY (numOrd) REFERENCES ordonnance(numOrd),
     FOREIGN KEY (id) REFERENCES medicaments(id)             -- id = idMed
@@ -61,7 +62,7 @@ CREATE TABLE docteur (
     ville VARCHAR2(20), 
     adresse VARCHAR2(50), 
     niveau VARCHAR2(8) CHECK (niveau in ('Étudiant', 'Interne', 'Docteur')), 
-    nbrPatients NUMBER(3) DEFAULT 0,
+    nbrPatients NUMBER(3) DEFAULT 0 CHECK (nbrPatients > 0),
     FOREIGN KEY(specialite) REFERENCES specialites(code)
 );
 
