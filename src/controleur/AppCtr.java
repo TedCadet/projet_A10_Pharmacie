@@ -5,9 +5,9 @@
  */
 package controleur;
 
-import dao.ConsultationDAO;
-import dao.DAO;
-import dao.DocteurDAO;
+import DAO.ConsultationDAO;
+import DAO.DAO;
+import DAO.DocteurDAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
