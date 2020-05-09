@@ -70,35 +70,39 @@ public class AppCtr {
             //code test pour insérer une donnée "Dossierpatient" dans le tableau
             Dossierpatient dosPatTest = new Dossierpatient((long) 22, null, "nomTest", "prenomTest", 'M', "TEST2222", null, null, null);
 
-            //code test pour insérer une donnée "Ordonnancechirurgie" dans le tableau ** fonctionne pas
+            //code test pour insérer une donnée "Ordonnancechirurgie" dans le tableau 
             Ordonnancechirurgie ordChiTest = new Ordonnancechirurgie(new OrdonnancechirurgieId(10352222, (short) 2), null, "cirurgieTest");
 
-            //code test pour insérer une donnée "Ordonnancemedicaments" dans le tableau ** fonctionne pas
+            //code test pour insérer une donnée "Ordonnancemedicaments" dans le tableau 
             Ordonnancemedicaments ordMedTest = new Ordonnancemedicaments(new OrdonnancemedicamentsId(10352299, "02222222"), null, null, (short) 22);     
             
-            // delete
-//            DAO.delete(dosPatTest);
-//            DAO.delete(docTest);
-//            DAO.delete(ordChiTest);
-//            DAO.delete(ordMedTest);
-//            DAO.delete(medTest);
-//            DAO.delete(ord1Test);
-//            DAO.delete(ord2Test);
-//            DAO.delete(specTest);
-//            DAO.delete(catTest);
-//            DAO.delete(conTest);
+            // delete n"a pas l'air de vraiment fonctionner
+            //DAO.delete(medTest);
+            //DAO.delete(specTest); 
+            //DAO.delete(conTest); 
+            //DAO.delete(ordChiTest); 
+            //DAO.delete(ordMedTest); 
+            //DAO.delete(ord1Test); 
+            //DAO.delete(ord2Test); 
+            //DAO.delete(dosPatTest);
+            //DAO.delete(docTest);      
+            //DAO.delete(catTest);
+            
    
-            // insertion
-            DAO.insert(catTest);
-            DAO.insert(specTest);
-            DAO.insert(ord2Test);
-            DAO.insert(ord1Test);
-            DAO.insert(medTest);
-            DAO.insert(ordMedTest);
-            DAO.insert(ordChiTest);
-            DAO.insert(docTest);
-            DAO.insert(dosPatTest);
-            DAO.insert(conTest);
+            /* insertion fonctionne mets peut planter donc pour tester les insert,
+            *  assurez-vous qu'ils ne sont pas déjà dans la base de données,
+            * décommenter le bloc et croiser vous les doigts 
+            */
+            //DAO.insert(catTest);
+            //DAO.insert(specTest);
+            //DAO.insert(ord2Test);
+            //DAO.insert(ord1Test);
+            //DAO.insert(medTest);
+            //DAO.insert(ordMedTest);
+            //DAO.insert(docTest);
+            //DAO.insert(dosPatTest);
+            //DAO.insert(conTest);
+            //DAO.insert(ordChiTest);
 
             
             //code pour appeler les requêtes (static) du DAO
