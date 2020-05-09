@@ -5,9 +5,9 @@
  */
 package controleur;
 
-import DAO.ConsultationDAO;
-import DAO.DAO;
-import DAO.DocteurDAO;
+import dao.ConsultationDAO;
+import dao.DAO;
+import dao.DocteurDAO;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -96,9 +96,16 @@ public class AppCtr {
             Map<Docteur,Long> chirurgiesParDocteur = DocteurDAO.chirurgiesPrescritesParDocteur();
             afficherChirurgiesParDocteur(chirurgiesParDocteur);
             
-            ConsultationDAO.getTotalConsultationsPerYear();
-         
+            //Requête #2
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+            System.out.println("Nombre de consultations par docteur:");
             ConsultationDAO.consultParDocteurs();
+            
+            //Requête #3
+            System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+            System.out.println("Nombre de consultations par année:");
+            ConsultationDAO.getTotalConsultationsPerYear();
+            
         } catch(HibernateException e){
             System.out.println(e.toString());
 
